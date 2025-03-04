@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
                             elevation: 12.0,
                             minimumSize: Size(190, 60),
                             textStyle: TextStyle(color: Colors.black, fontSize: 35.0, fontWeight: FontWeight.bold),),
-                        child: Text('Sign In'),
+                        child: Text('\$ign In'),
                       ),
 
                       SizedBox(height: 25,),
@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
                             elevation: 12.0,
                             minimumSize: Size(190, 60),
                             textStyle: const TextStyle(color: Colors.black, fontSize: 35.0, fontWeight: FontWeight.bold)),
-                        child: const Text('Register'),
+                        child: const Text('\$ign Up'),
                       ),                  
                     
                 ],
