@@ -4,7 +4,7 @@ DATABASE = "b4s.db"
 
 def init_db():
     with sqlite3.connect(DATABASE) as conn:
-        with open("back-end/schema.sql") as f:
+        with open("schema.sql") as f:
             conn.executescript(f.read())
         print("Database initialized.")
 
