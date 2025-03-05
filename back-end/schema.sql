@@ -7,6 +7,7 @@ CREATE TABLE users (
     name TEXT NOT NULL,
     email TEXT UNIQUE NOT NULL,
     phoneNumber TEXT UNIQUE NOT NULL,
+    money INTEGER DEFAULT 20000,
     password TEXT NOT NULL
 );
 
