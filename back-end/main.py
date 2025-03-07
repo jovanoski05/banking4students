@@ -56,7 +56,7 @@ def register():
         session['user'] = None
 
     if session['user']:
-        return jsonify({"code":-1, "Message": "User already logged in"})
+        return jsonify({"Code":-1, "Message": "User already logged in"})
     
     data = request.get_json()
 
@@ -76,7 +76,7 @@ def login():
         session['user'] = None
 
     if session['user']:
-        return jsonify({"code":-1, "Message": "User already logged in"})
+        return jsonify({"Code":-1, "Message": "User already logged in"})
 
     req = request.get_json()
 

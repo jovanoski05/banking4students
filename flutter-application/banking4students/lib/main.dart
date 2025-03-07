@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+
 const List<String> list = <String>['EVN', 'Internet Provider', 'Water Supplier'];
 void main() => runApp(const MyApp());
 
@@ -63,7 +65,7 @@ class Welcome extends StatelessWidget {
                         // style: ButtonStyle(elevation: MaterialStateProperty(12.0 )),
                         style: ElevatedButton.styleFrom(
                             elevation: 12.0,
-                            minimumSize: Size(190, 60),
+                            
                             textStyle: TextStyle(color: Colors.black, fontSize: 35.0, fontWeight: FontWeight.bold),),
                         child: Text('\$ign In'),
                       ),
@@ -80,7 +82,7 @@ class Welcome extends StatelessWidget {
                         // style: ButtonStyle(elevation: MaterialStateProperty(12.0 )),
                         style: ElevatedButton.styleFrom(
                             elevation: 12.0,
-                            minimumSize: Size(190, 60),
+                           
                             textStyle: const TextStyle(color: Colors.black, fontSize: 35.0, fontWeight: FontWeight.bold)
                             ),
                         child: const Text('\$ign Up'),
@@ -128,7 +130,7 @@ class SignUp extends StatelessWidget {
         image: DecorationImage(image: AssetImage("assets/images/signup_bg.png"), fit: BoxFit.cover),
       ),
       child: Center(
-        child: Column(
+        child: ListView(
           children: [
             SizedBox(height: 50,),
 
@@ -141,6 +143,7 @@ class SignUp extends StatelessWidget {
                 shadowColor: const Color.fromARGB(104, 107, 10, 204),
 
                 child: TextField(
+                  obscureText: false,
                   style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       filled: true,
@@ -168,6 +171,7 @@ class SignUp extends StatelessWidget {
                 shadowColor: const Color.fromARGB(104, 107, 10, 204),
 
                 child: TextField(
+                  obscureText: false,
                   style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       filled: true,
@@ -195,6 +199,7 @@ class SignUp extends StatelessWidget {
                 shadowColor: const Color.fromARGB(104, 107, 10, 204),
 
                 child: TextField(
+                  obscureText: false,
                   style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       filled: true,
@@ -222,6 +227,7 @@ class SignUp extends StatelessWidget {
                 shadowColor: const Color.fromARGB(104, 107, 10, 204),
 
                 child: TextField(
+                  obscureText: true,
                   style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       filled: true,
@@ -249,10 +255,12 @@ class SignUp extends StatelessWidget {
                 shadowColor: const Color.fromARGB(104, 107, 10, 204),
 
                 child: TextField(
+                  obscureText: true,
                   style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
+                      
                       hintText: 'Confirm password',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20.0)
@@ -268,16 +276,22 @@ class SignUp extends StatelessWidget {
             SizedBox(height: 50,),
            
 
-            ElevatedButton(
+            Padding(padding: EdgeInsets.symmetric(horizontal: 100),
+              child:ElevatedButton(
               onPressed: () {
-                
+                Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Main()),
+                          );
               },
               style: ElevatedButton.styleFrom(
                     elevation: 12.0,
-                    minimumSize: Size(190, 60),
+                    
                     textStyle: const TextStyle(color: Colors.black, fontSize: 25.0, fontWeight: FontWeight.bold)
                     ),
               child: Text("Sign Up"))
+            ),
+            
           ],
         ),
       ),
@@ -312,9 +326,11 @@ class SignIn extends StatelessWidget {
         image: DecorationImage(image: AssetImage("assets/images/signin_bg.png"), fit: BoxFit.cover),
       ),
       child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
+          
           children: [
+
+            SizedBox(height: 250,),
 
            Padding(
               padding: EdgeInsets.symmetric(horizontal: 25, vertical: 16),
@@ -352,6 +368,7 @@ class SignIn extends StatelessWidget {
                 shadowColor: const Color.fromARGB(104, 107, 10, 204),
 
                 child: TextField(
+                  obscureText: true,
                   style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       filled: true,
@@ -371,7 +388,8 @@ class SignIn extends StatelessWidget {
             SizedBox(height: 150,),
            
 
-            ElevatedButton(
+            Padding(padding: EdgeInsets.symmetric(horizontal: 100),
+              child:ElevatedButton(
               onPressed: () {
                 Navigator.push(
                             context,
@@ -380,10 +398,11 @@ class SignIn extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                     elevation: 12.0,
-                    minimumSize: Size(190, 60),
+                    
                     textStyle: const TextStyle(color: Colors.black, fontSize: 25.0, fontWeight: FontWeight.bold)
                     ),
               child: Text("Sign In"))
+            ),
           ],
         ),
       ),
@@ -421,7 +440,7 @@ class Main extends StatelessWidget {
                 Menu(),
 
                 Center(
-                  child: Padding(padding: EdgeInsets.all(60.0),
+                  child: Padding(padding: EdgeInsets.symmetric(horizontal: 60.0, vertical: 45),
                       child: SizedBox(
                         width: 450,
                         height: 180,
@@ -464,6 +483,57 @@ class Main extends StatelessWidget {
 
                 ),
                 
+                Center(
+                  child: Padding(padding: EdgeInsets.symmetric(horizontal: 60.0),
+                      child: SizedBox(
+                        width: 450,
+                        height: 180,
+                        child: DecoratedBox(decoration: BoxDecoration(
+                            color: Color.fromRGBO(54, 134, 184, 1),
+                            borderRadius: BorderRadius.circular(25.0),
+                            boxShadow: <BoxShadow>[BoxShadow(color: const Color.fromARGB(91, 0, 0, 0), blurRadius: 20.0, blurStyle: BlurStyle.outer)],
+                          ),
+                        child: Row(
+                          children: [
+                            SizedBox(width: 32,),
+                            SizedBox(
+                              width: 125,
+                              height: 80,
+                              child: DecoratedBox(decoration: BoxDecoration(
+                                  color: Color.fromRGBO(208, 228, 241, 1),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  boxShadow: <BoxShadow>[BoxShadow(color: const Color.fromARGB(33, 0, 0, 0), blurRadius: 20.0, blurStyle: BlurStyle.outer)],
+                                ),),
+                            ),
+
+                            SizedBox(width: 15,),
+                            
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(height: 45,),
+                                Text('VISA Debit'),
+                                SizedBox(height: 25,),
+                                Text('(MKD) Balance:'),
+                                SizedBox(height: 10,),
+                                Text('20.000,00'),
+                              ],
+                            )
+                          ],
+                        ),
+                        ),
+                      ),
+                    )
+
+                ),
+
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 50),
+                  child: TextButton(
+                        onPressed: () {}, 
+                        child: Text("Add Card", style: TextStyle(color: Colors.white),),
+                      ),
+                ),
                 
               ],
             ),
@@ -742,7 +812,7 @@ class PP50_Recipient extends StatelessWidget {
                 InputField(hint: "Bank",),
                 InputField(hint: "Account",),
                 InputField(hint: "Amount",),
-                InputField(hint: "Purpose Account",),
+                InputField(hint: "Payment Account",),
                 InputField(hint: "Beneficiary Account",),
                 
                 Padding(padding: EdgeInsets.symmetric(horizontal: 70),
