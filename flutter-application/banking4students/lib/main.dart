@@ -413,57 +413,12 @@ class Main extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 150,),
-                Center(),              
-                
-                
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 65.0),
-                  child: Row(children: [
-                    SizedBox(
-                      width: 80,
-                      height: 80,
-                      child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(image: AssetImage("assets/images/profile_pic.png"), fit: BoxFit.cover),
-                      ),
-                    ),
-                    ),
-
-                    SizedBox(width: 20,),
-
-                    Text('John \nDoe', style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25.0,
-                    ),),
-
-                  ],),
-                  
-                  
-                ),
+                Center(),
+                Header(),
                 
                 SizedBox(height: 25,),
 
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 20),
-                  height: 25,
-                  child: ListView(
-                    // This next line does the trick.
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      SizedBox(width: 35,),
-                      ElevatedButton(onPressed: () {}, style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Cards'),),
-                      SizedBox(width: 35,),
-                      ElevatedButton(onPressed: () {},  style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Coupons'),),
-                      SizedBox(width: 35,),
-                      ElevatedButton(onPressed: () {}, style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Saving'),),
-                      SizedBox(width: 35,),
-                      ElevatedButton(onPressed: () {},  style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Investments'),),
-                      SizedBox(width: 35,),
-                      ElevatedButton(onPressed: () {}, style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Converter'),),
-                      SizedBox(width: 35,),
-                    ],
-                  ),
-                ),
+                Menu(),
 
                 Center(
                   child: Padding(padding: EdgeInsets.all(60.0),
@@ -517,3 +472,205 @@ class Main extends StatelessWidget {
   }
 }
 
+// Coupons
+
+class Coupons extends StatelessWidget {
+  const Coupons({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+
+
+      backgroundColor: Color.fromARGB(255, 0, 149, 199),
+
+        body: DecoratedBox(
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage("assets/images/main.png"), fit: BoxFit.cover),
+            ),
+
+            child: ListView(
+              
+              children: [
+                SizedBox(height: 150,),
+                Center(),              
+                
+                
+                Header(),
+                
+                SizedBox(height: 25,),
+
+                Menu(),
+
+                Coupon(),
+                Coupon(),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 50),
+                  child: TextButton(
+                        onPressed: () {}, 
+                        child: Text("Add Coupon", style: TextStyle(color: Colors.white),),
+                      ),
+                ),
+                
+                
+              ],
+            ),
+        ),
+    );
+  }
+}
+
+class ViewCoupon extends StatelessWidget {
+  const ViewCoupon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+
+
+      backgroundColor: Color.fromARGB(255, 0, 149, 199),
+
+      appBar: AppBar(
+        title: Text("Coupon"),
+        backgroundColor: const Color.fromARGB(255, 0, 149, 199),
+        centerTitle: true,
+        titleTextStyle: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 25.0
+        ),
+      ),
+
+        body: DecoratedBox(
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage("assets/images/main.png"), fit: BoxFit.cover),
+            ),
+
+            child: ListView(
+              
+              children: [              
+                
+              ],
+            ),
+        ),
+    );
+  }
+}
+
+
+//Components
+class Header extends StatelessWidget {
+  const Header({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+            padding: EdgeInsets.symmetric(horizontal: 65.0),
+            child: Row(children: [
+              SizedBox(
+                width: 80,
+                height: 80,
+                child: DecoratedBox(
+                decoration: BoxDecoration(
+                  image: DecorationImage(image: AssetImage("assets/images/profile_pic.png"), fit: BoxFit.cover),
+                ),
+              ),
+              ),
+
+              SizedBox(width: 20,),
+
+              Text('John \nDoe', style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 25.0,
+              ),),
+
+            ],),
+            
+            
+          );
+  }
+}
+
+class Menu extends StatelessWidget {
+  const Menu({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+            margin: EdgeInsets.symmetric(vertical: 20),
+            height: 25,
+            child: ListView(
+              // This next line does the trick.
+              scrollDirection: Axis.horizontal,
+              children: <Widget>[
+                SizedBox(width: 35,),
+                ElevatedButton(onPressed: () {Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Main()),
+                      );
+                    }, style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Cards'),),
+                SizedBox(width: 35,),
+                ElevatedButton(onPressed: () {Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Coupons()),
+                    );},  style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Coupons'),),
+                SizedBox(width: 35,),
+                ElevatedButton(onPressed: () {}, style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Saving'),),
+                SizedBox(width: 35,),
+                ElevatedButton(onPressed: () {},  style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Investments'),),
+                SizedBox(width: 35,),
+                ElevatedButton(onPressed: () {}, style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Converter'),),
+                SizedBox(width: 35,),
+              ],
+            ),
+          );
+  }
+}
+
+class Coupon extends StatelessWidget {
+  const Coupon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+          child: Padding(padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 55.0),
+              child: SizedBox(
+                width: 450,
+                height: 180,
+                child: DecoratedBox(decoration: BoxDecoration(
+                    color: Color.fromRGBO(54, 134, 184, 1),
+                    borderRadius: BorderRadius.circular(25.0),
+                    boxShadow: <BoxShadow>[BoxShadow(color: const Color.fromARGB(91, 0, 0, 0), blurRadius: 20.0, blurStyle: BlurStyle.outer)],
+                  ),
+                child: Column(
+                  children: [
+                    SizedBox(height: 25,),
+                    SizedBox(
+                      width: 125,
+                      height: 80,
+                      child: DecoratedBox(decoration: BoxDecoration(
+                          color: Color.fromRGBO(34, 128, 69, 1),
+                          borderRadius: BorderRadius.circular(10.0),
+                          boxShadow: <BoxShadow>[BoxShadow(color: const Color.fromARGB(33, 0, 0, 0), blurRadius: 20.0, blurStyle: BlurStyle.outer)],
+                        ),
+                        ),
+                    ),
+
+                    SizedBox(height: 15,),
+                    TextButton(onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const ViewCoupon()),
+                      );
+                    }, child: Text('Market Coupon', style: TextStyle(color: Colors.white),)),
+                    
+                    
+                    
+                  ],
+                ),
+                ),
+              ),
+            )
+
+        );
+  }
+}
