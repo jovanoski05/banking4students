@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+const List<String> list = <String>['EVN', 'Internet Provider', 'Water Supplier'];
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -409,10 +409,10 @@ class Main extends StatelessWidget {
               image: DecorationImage(image: AssetImage("assets/images/main.png"), fit: BoxFit.cover),
             ),
 
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: ListView(
+              
               children: [
-                SizedBox(height: 150,),
+                SizedBox(height: 100,),
                 Center(),
                 Header(),
                 
@@ -492,7 +492,7 @@ class Coupons extends StatelessWidget {
             child: ListView(
               
               children: [
-                SizedBox(height: 150,),
+                SizedBox(height: 100,),
                 Center(),              
                 
                 
@@ -548,6 +548,59 @@ class ViewCoupon extends StatelessWidget {
             child: ListView(
               
               children: [              
+                CouponCard(),
+
+                
+                  
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      
+                      Text("Value", style: TextStyle(fontSize: 38.0, fontWeight: FontWeight.bold),),
+                      SizedBox(width: 55,),
+                      SizedBox(
+                        width: 140,
+                        height: 70,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(50.0)
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 55.0,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      
+                      Text("Valid \nuntil", style: TextStyle(fontSize: 38.0, fontWeight: FontWeight.bold),),
+                      SizedBox(width: 55,),
+                      SizedBox(
+                        width: 140,
+                        height: 70,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(50.0)
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 80,),
+
+                  SizedBox(
+                    width: 200,
+                    height: 100,
+                    child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(image: AssetImage("assets/images/barcode.png"), fit: BoxFit.scaleDown)
+                    ),
+                  )
+                  )
+                  
                 
               ],
             ),
@@ -556,6 +609,275 @@ class ViewCoupon extends StatelessWidget {
   }
 }
 
+class Savings extends StatelessWidget {
+  const Savings({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color.fromARGB(255, 0, 149, 199),
+
+        body: DecoratedBox(
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage("assets/images/main.png"), fit: BoxFit.cover),
+            ),
+
+            child: ListView(
+
+              children: [
+                SizedBox(height: 100,),
+                Center(),              
+                
+                
+                Header(),
+                
+                SizedBox(height: 25,),
+
+                Menu(),
+
+                SizedBox(height: 25,),
+
+                SavingComp(name: "Car", saved: 6500, goal: 12000,),
+                SizedBox(height: 25,),
+                SavingComp(name: "House")
+
+
+              ],
+
+            ),
+        ),
+
+        
+    );
+  }
+}
+
+class PP50_Payer extends StatelessWidget {
+  const PP50_Payer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+       backgroundColor: Color.fromARGB(255, 0, 149, 199),
+
+        appBar: AppBar(
+        title: Text("PP50"),
+        backgroundColor: const Color.fromARGB(255, 0, 149, 199),
+        centerTitle: true,
+        titleTextStyle: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 25.0
+        ),
+      ),
+
+        body: DecoratedBox(
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage("assets/images/pp50.png"), fit: BoxFit.cover),
+            ),
+
+            child: ListView(
+              children: [
+                Center(),
+                SizedBox(height: 50,),
+                Center(child: Text('Payer', style: TextStyle(
+                  fontSize: 35,
+                  fontWeight: FontWeight.w800
+                ),),),
+                
+                SizedBox(height: 25,),
+                InputField(hint: "Name and surname",),
+                InputField(hint: "Bank",),
+                InputField(hint: "Tax number (EMBS)",),
+                InputField(hint: "Reference number - debt",),
+                InputField(hint: "Purpose of payment",),
+
+                Padding(padding: EdgeInsets.symmetric(horizontal: 70),
+                  child: ElevatedButton(onPressed: () {Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const PP50_Recipient()),
+                    );},  style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Next'),),
+                ),
+                
+              ],
+            )
+        ),
+    );
+  }
+}
+
+class PP50_Recipient extends StatelessWidget {
+  const PP50_Recipient({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+       backgroundColor: Color.fromARGB(255, 0, 149, 199),
+
+        appBar: AppBar(
+        title: Text("PP50"),
+        backgroundColor: const Color.fromARGB(255, 0, 149, 199),
+        centerTitle: true,
+        titleTextStyle: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 25.0
+        ),
+      ),
+
+        body: DecoratedBox(
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage("assets/images/pp50.png"), fit: BoxFit.cover),
+            ),
+
+            child: ListView(
+              children: [
+                Center(),
+                SizedBox(height: 50,),
+                Center(child: Text('Recipient', style: TextStyle(
+                  fontSize: 35,
+                  fontWeight: FontWeight.w800
+                ),),),
+                
+                SizedBox(height: 25,),
+                InputField(hint: "Name of the Recipient",),
+                InputField(hint: "Bank",),
+                InputField(hint: "Account",),
+                InputField(hint: "Amount",),
+                InputField(hint: "Purpose Account",),
+                InputField(hint: "Beneficiary Account",),
+                
+                Padding(padding: EdgeInsets.symmetric(horizontal: 70),
+                  child: ElevatedButton(onPressed: () {Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const PP50_final()),
+                    );},  style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Next'),),
+                ),
+                             
+
+              ],
+            )
+        ),
+    );
+  }
+}
+
+class PP50_final extends StatelessWidget {
+  const PP50_final({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+       backgroundColor: Color.fromARGB(255, 0, 149, 199),
+
+        appBar: AppBar(
+        title: Text("PP50"),
+        backgroundColor: const Color.fromARGB(255, 0, 149, 199),
+        centerTitle: true,
+        titleTextStyle: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 25.0
+        ),
+      ),
+
+        body: DecoratedBox(
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage("assets/images/pp50.png"), fit: BoxFit.cover),
+            ),
+
+            child: Column(
+              children: [
+                Center(),
+                SizedBox(height: 50,),
+                Center(child: Text('Recipient', style: TextStyle(
+                  fontSize: 35,
+                  fontWeight: FontWeight.w800
+                ),),),
+                
+                SizedBox(height: 25,),
+
+                Text('Program & Indicative Program ', style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w800
+                ),),
+
+                SizedBox(height: 10,),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    HorizontalInputField(hint: "",),
+                    SizedBox(width: 25,),
+                    HorizontalInputField(hint: ""),
+                    SizedBox(width: 25,),
+                    HorizontalInputField(hint: ""),
+                  ],
+                ),
+
+                SizedBox(height: 25,),
+
+                InputField(hint: "Place of payment",),
+                
+                Padding(padding: EdgeInsets.symmetric(horizontal: 70),
+                  child: ElevatedButton(onPressed: () {Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Main()),
+                    );},  style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Finish Payment'),),
+                ),
+                             
+
+              ],
+            )
+        ),
+    );
+  }
+}
+
+class PayBills extends StatelessWidget {
+  const PayBills({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color.fromARGB(255, 0, 149, 199),
+
+        appBar: AppBar(
+        title: Text("Pay Bills"),
+        backgroundColor: const Color.fromARGB(255, 0, 149, 199),
+        centerTitle: true,
+        titleTextStyle: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 25.0
+        ),
+      ),
+
+        body: DecoratedBox(
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage("assets/images/pp50.png"), fit: BoxFit.cover),
+            ),
+
+            child: ListView(
+              children: [
+                Center(),
+                SizedBox(height: 50,),
+                
+                DropdownButtonExample(),
+                
+                SizedBox(height: 25,),
+                InputField(hint: "Bill Number/ID",),
+                
+                Padding(padding: EdgeInsets.symmetric(horizontal: 70),
+                  child: ElevatedButton(onPressed: () {Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Main()),
+                    );},  style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Pay'),),
+                ),
+                             
+
+              ],
+            )
+        ),
+    );
+  }
+}
 
 //Components
 class Header extends StatelessWidget {
@@ -614,11 +936,20 @@ class Menu extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => const Coupons()),
                     );},  style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Coupons'),),
                 SizedBox(width: 35,),
-                ElevatedButton(onPressed: () {}, style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Saving'),),
+                ElevatedButton(onPressed: () {Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Savings()),
+                    );}, style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Saving'),),
                 SizedBox(width: 35,),
-                ElevatedButton(onPressed: () {},  style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Investments'),),
+                ElevatedButton(onPressed: () {Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const PP50_Payer()),
+                    );},  style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('PP50'),),
                 SizedBox(width: 35,),
-                ElevatedButton(onPressed: () {}, style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Converter'),),
+                ElevatedButton(onPressed: () {Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const PayBills()),
+                    );}, style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero), foregroundColor: Colors.white, backgroundColor: Color.fromRGBO(6, 86, 190, 1)), child: Text('Pay bills'),),
                 SizedBox(width: 35,),
               ],
             ),
@@ -672,5 +1003,184 @@ class Coupon extends StatelessWidget {
             )
 
         );
+  }
+}
+
+class CouponCard extends StatelessWidget {
+  const CouponCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 70),
+      child: SizedBox(
+
+      width: 250,
+      height: 150,
+
+      child: DecoratedBox(
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(54, 134, 184, 1),
+              borderRadius: BorderRadius.circular(10.0)
+            ),
+            child: Padding(padding: EdgeInsets.symmetric(horizontal: 65, vertical: 25),
+              child: DecoratedBox(decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.0),
+                color: Colors.white
+            )),
+            )
+            
+    ),
+    ),
+
+    );
+  }
+}
+
+class SavingComp extends StatelessWidget {
+  const SavingComp({
+    super.key, 
+    this.name = "Saving",
+    this.saved = 0,
+    this.goal = 1
+    });
+
+  final String name;
+  final double saved;
+  final double goal;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      
+      mainAxisAlignment: MainAxisAlignment.center,
+      children:[
+        
+        Column(
+          children: [
+            Text(name, style: TextStyle(fontSize: 30),),
+            SizedBox(height: 20,),
+            SizedBox(
+              width: 320,
+              height: 150,
+              child: DecoratedBox(
+                decoration: BoxDecoration(color: Color.fromARGB(138, 81, 205, 176), border: Border.all(color: Color.fromRGBO(30, 250, 151, 0.4), width: 3)),
+                  child:Row(children: [
+                    
+                    SizedBox(
+                    width: (saved/goal)*320,
+                    height: 150,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(color: Color.fromARGB(138, 81, 205, 176), border: Border.all(color: Color.fromRGBO(30, 250, 151, 0.4), width: 6)),
+                    ),
+                  )
+                  ],)
+                ),          
+            ),
+            SizedBox(height: 20,),
+            Text("Svaed: (MKD) "+saved.toString()+"           Goal: (MKD) "+goal.toString(), style: TextStyle(fontSize: 15),),
+          ],
+        )
+
+        
+      ]
+    );
+  }
+}
+
+class InputField extends StatelessWidget {
+  const InputField({
+    super.key,
+    this.hint = "Name"
+    });
+
+    final String hint;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+
+          child: TextField(
+          style: TextStyle(color: Colors.black),
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
+              hintText: hint,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20.0)
+              ),
+              hintStyle: TextStyle(color: Colors.black),
+              contentPadding: EdgeInsets.symmetric(horizontal: 25, vertical: 17),
+            ),
+          ),
+        );
+  }
+}
+
+class HorizontalInputField extends StatelessWidget {
+  const HorizontalInputField({
+    super.key,
+    this.hint = "Name"
+    });
+
+    final String hint;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(width: 100,
+    child: TextField(
+          style: TextStyle(color: Colors.black),
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
+              hintText: hint,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20.0)
+              ),
+              hintStyle: TextStyle(color: Colors.black),
+              contentPadding: EdgeInsets.symmetric(horizontal: 25, vertical: 17),
+            ),
+          ),
+    );
+  }
+}
+
+class DropdownButtonExample extends StatefulWidget {
+  const DropdownButtonExample({super.key});
+
+  @override
+  State<DropdownButtonExample> createState() => _DropdownButtonExampleState();
+}
+
+class _DropdownButtonExampleState extends State<DropdownButtonExample> {
+  String dropdownValue = list.first;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 80),
+      child:Center(
+        child: DropdownButton<String>(
+      value: dropdownValue,
+      iconSize: 30,
+      alignment: Alignment.center,
+      
+      elevation: 16,
+      dropdownColor: Color.fromRGBO(54, 134, 184, 1),
+      style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 30, ),
+      
+      onChanged: (String? value) {
+        // This is called when the user selects an item.
+        setState(() {
+          dropdownValue = value!;
+        });
+      },
+      items:
+          list.map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(value: value, child: Text(value));
+          }).toList(),
+    ),
+      ) 
+    );
   }
 }
